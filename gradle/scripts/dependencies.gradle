@@ -68,4 +68,5 @@ dependencies {
     // implementation ('com.google.code.gson:gson:2.8.6') {
     //     transitive = false
     // }
+    implementation(rfg.deobf(project.files("libs/gregtech-1.12.2-2.9.0-beta.jar")))
 }
