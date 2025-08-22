@@ -3,6 +3,8 @@ package tt.recipes;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.common.items.MetaItems;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import static gregtech.api.unification.material.MarkerMaterials.Tier.LV;
 import static gregtech.api.unification.material.Materials.Steel;
@@ -18,7 +20,9 @@ public class ComponentAssemblerRecipes {
                 .input(OrePrefix.cableGtSingle, Tin, 3)
                 .input(OrePrefix.stick, Steel, 2)
                 .input(OrePrefix.circuit, LV, 1)
-                .inputs(MetaItems.ELECTRIC_MOTOR_LV.getStackForm(), MetaItems.ELECTRIC_PISTON_LV.getStackForm())
+                .input(MetaItems.ELECTRIC_MOTOR_LV)
+                .input(MetaItems.ELECTRIC_PISTON_LV)
+                .output(MetaItems.ROBOT_ARM_LV)
                 .duration(100).EUt(8)
                 .buildAndRegister();
 
@@ -26,7 +30,9 @@ public class ComponentAssemblerRecipes {
                 .input(OrePrefix.cableGtSingle, Tin, 3)
                 .input(OrePrefix.stick, Steel, 2)
                 .input(OrePrefix.circuit, LV, 1)
-                .inputs(MetaItems.ELECTRIC_MOTOR_LV.getStackForm(), MetaItems.ELECTRIC_PISTON_LV.getStackForm())
+                .input(MetaItems.ELECTRIC_MOTOR_LV)
+                .input(MetaItems.ELECTRIC_PISTON_LV)
+                .output(MetaItems.ROBOT_ARM_LV)
                 .duration(100).EUt(30)
                 .buildAndRegister();
     }
