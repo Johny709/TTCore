@@ -1,0 +1,11 @@
+{
+  "package": "tt.mixin",
+  "required": true,
+  "refmap": "mixins.tt.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "server": [],
+  "client": []
+}
