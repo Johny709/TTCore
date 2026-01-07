@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Function;
 
-@Mixin(WorkableTieredMetaTileEntity.class)
+@Mixin(value = WorkableTieredMetaTileEntity.class, remap = false)
 public abstract class WorkableTieredMetaTileEntityMixin extends TieredMetaTileEntity {
 
     @Final

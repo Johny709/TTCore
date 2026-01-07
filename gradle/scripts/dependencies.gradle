@@ -68,6 +68,7 @@ dependencies {
     // implementation ('com.google.code.gson:gson:2.8.6') {
     //     transitive = false
     // }
+    implementation(rfg.deobf(project.files("libs/gcyl-ceu-0.1.0.jar")))
     implementation(rfg.deobf(project.files("libs/gregtech-1.12.2-2.9.0-beta.jar")))
     implementation(rfg.deobf(project.files("libs/modularui-2.5.0-rc4.jar")))
 }
