@@ -6,6 +6,8 @@
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ae2.ApiItemsMixin",
+    "ae2.ApiMaterialsMixin",
     "gregtech.MetaTileEntityLargeChemicalReactorMixin",
     "gregtech.WorkableTieredMetaTileEntityMixin"
   ],
