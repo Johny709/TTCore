@@ -2,7 +2,7 @@ package appeng.items.materials;
 
 import appeng.core.AppEng;
 import appeng.core.features.AEFeature;
-import appeng.items.TJAE2MaterialStackSrc;
+import appeng.items.TTAE2MaterialStackSrc;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import java.util.EnumSet;
 import java.util.Set;
 
-public enum TJAE2MaterialType {
+public enum TTAE2MaterialType {
     CELL_65M_PART(0, "material_cell65m_part", EnumSet.of(AEFeature.STORAGE_CELLS)),
     CELL_262M_PART(1, "material_cell262m_part", EnumSet.of(AEFeature.STORAGE_CELLS)),
     CELL_1048M_PART(2, "material_cell1048m_part", EnumSet.of(AEFeature.STORAGE_CELLS)),
@@ -28,33 +28,33 @@ public enum TJAE2MaterialType {
     private Item itemInstance;
     private int damageValue;
     // stack!
-    private TJAE2MaterialStackSrc stackSrc;
+    private TTAE2MaterialStackSrc stackSrc;
     private String oreName;
     private Class<? extends Entity> droppedEntity;
     private boolean isRegistered = false;
 
-    TJAE2MaterialType(final int metaValue, String modelName) {
+    TTAE2MaterialType(final int metaValue, String modelName) {
         this(metaValue, modelName, EnumSet.of(AEFeature.CORE));
     }
 
-    TJAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features) {
+    TTAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features) {
         this.setDamageValue(metaValue);
         this.features = features;
         this.model = new ModelResourceLocation(new ResourceLocation(AppEng.MOD_ID, modelName), "inventory");
     }
 
-    TJAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features, final Class<? extends Entity> c) {
+    TTAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features, final Class<? extends Entity> c) {
         this(metaValue, modelName, features);
         this.droppedEntity = c;
     }
 
-    TJAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features, final String oreDictionary, final Class<? extends Entity> c) {
+    TTAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features, final String oreDictionary, final Class<? extends Entity> c) {
         this(metaValue, modelName, features);
         this.oreName = oreDictionary;
         this.droppedEntity = c;
     }
 
-    TJAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features, final String oreDictionary) {
+    TTAE2MaterialType(final int metaValue, String modelName, final Set<AEFeature> features, final String oreDictionary) {
         this(metaValue, modelName, features);
         this.oreName = oreDictionary;
     }
@@ -103,11 +103,11 @@ public enum TJAE2MaterialType {
         this.itemInstance = itemInstance;
     }
 
-    TJAE2MaterialStackSrc getStackSrc() {
+    TTAE2MaterialStackSrc getStackSrc() {
         return this.stackSrc;
     }
 
-    void setStackSrc(final TJAE2MaterialStackSrc stackSrc) {
+    void setStackSrc(final TTAE2MaterialStackSrc stackSrc) {
         this.stackSrc = stackSrc;
     }
 

@@ -15,7 +15,7 @@ import appeng.core.AEConfig;
 import appeng.core.features.AEFeature;
 import appeng.core.features.IStackSrc;
 import appeng.items.AEBaseItem;
-import appeng.items.TJAE2MaterialStackSrc;
+import appeng.items.TTAE2MaterialStackSrc;
 import appeng.items.contents.CellConfig;
 import appeng.items.contents.CellUpgrades;
 import appeng.util.InventoryAdaptor;
@@ -49,15 +49,15 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public final class TJItemMaterial extends AEBaseItem implements IStorageComponent, IUpgradeModule, ICellWorkbenchItem {
+public final class TTItemMaterial extends AEBaseItem implements IStorageComponent, IUpgradeModule, ICellWorkbenchItem {
 
-    public static TJItemMaterial INSTANCE;
+    public static TTItemMaterial INSTANCE;
 
     private static final int KILO_SCALAR = 1024;
 
-    private final Int2ObjectMap<TJAE2MaterialType> dmgToMaterial = new Int2ObjectOpenHashMap<>();
+    private final Int2ObjectMap<TTAE2MaterialType> dmgToMaterial = new Int2ObjectOpenHashMap<>();
 
-    public TJItemMaterial() {
+    public TTItemMaterial() {
         this.setHasSubtypes(true);
         INSTANCE = this;
     }
@@ -67,7 +67,7 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
     public void addCheckedInformation(final ItemStack stack, final World world, final List<String> lines, final ITooltipFlag advancedTooltips) {
         super.addCheckedInformation(stack, world, lines, advancedTooltips);
 
-        final TJAE2MaterialType mt = this.getTypeByStack(stack);
+        final TTAE2MaterialType mt = this.getTypeByStack(stack);
         if (mt == null) {
             return;
         }
@@ -120,9 +120,9 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
         }
     }
 
-    public TJAE2MaterialType getTypeByStack(final ItemStack is) {
-        TJAE2MaterialType type = this.dmgToMaterial.get(is.getItemDamage());
-        return (type != null) ? type : TJAE2MaterialType.INVALID_TYPE;
+    public TTAE2MaterialType getTypeByStack(final ItemStack is) {
+        TTAE2MaterialType type = this.dmgToMaterial.get(is.getItemDamage());
+        return (type != null) ? type : TTAE2MaterialType.INVALID_TYPE;
     }
 
     @Override
@@ -130,7 +130,7 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
         return null;
     }
 
-    public IStackSrc createMaterial(final TJAE2MaterialType mat) {
+    public IStackSrc createMaterial(final TTAE2MaterialType mat) {
         Preconditions.checkState(!mat.isRegistered(), "Cannot create the same material twice.");
 
         boolean enabled = true;
@@ -139,7 +139,7 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
             enabled = enabled && AEConfig.instance().isFeatureEnabled(f);
         }
 
-        mat.setStackSrc(new TJAE2MaterialStackSrc(mat, enabled));
+        mat.setStackSrc(new TTAE2MaterialStackSrc(mat, enabled));
 
         if (enabled) {
             mat.setItemInstance(this);
@@ -157,7 +157,7 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
     }
 
     public void registerOredicts() {
-        for (final TJAE2MaterialType mt : ImmutableSet.copyOf(this.dmgToMaterial.values())) {
+        for (final TTAE2MaterialType mt : ImmutableSet.copyOf(this.dmgToMaterial.values())) {
             if (mt.getOreName() != null) {
                 final String[] names = mt.getOreName().split(",");
 
@@ -176,10 +176,10 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
 
     @Override
     protected void getCheckedSubItems(final CreativeTabs creativeTab, final NonNullList<ItemStack> itemStacks) {
-        final List<TJAE2MaterialType> types = Arrays.asList(TJAE2MaterialType.values());
+        final List<TTAE2MaterialType> types = Arrays.asList(TTAE2MaterialType.values());
         Collections.sort(types, (o1, o2) -> o1.name().compareTo(o2.name()));
 
-        for (final TJAE2MaterialType mat : types) {
+        for (final TTAE2MaterialType mat : types) {
             if (mat.getDamageValue() >= 0 && mat.isRegistered() && mat.getItemInstance() == this) {
                 itemStacks.add(new ItemStack(this, 1, mat.getDamageValue()));
             }
@@ -254,7 +254,7 @@ public final class TJItemMaterial extends AEBaseItem implements IStorageComponen
             return "null";
         }
 
-        final TJAE2MaterialType mt = this.getTypeByStack(is);
+        final TTAE2MaterialType mt = this.getTypeByStack(is);
         if (mt == null) {
             return "null";
         }

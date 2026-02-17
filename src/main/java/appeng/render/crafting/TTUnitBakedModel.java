@@ -6,11 +6,11 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.util.EnumFacing;
 
-public class TJUnitBakedModel extends TJCraftingCubeBakedModel {
+public class TTUnitBakedModel extends TTCraftingCubeBakedModel {
 
     private final TextureAtlasSprite unitTexture;
 
-    public TJUnitBakedModel(VertexFormat format, TextureAtlasSprite ringCorner, TextureAtlasSprite ringHor, TextureAtlasSprite ringVer, TextureAtlasSprite unitTexture) {
+    public TTUnitBakedModel(VertexFormat format, TextureAtlasSprite ringCorner, TextureAtlasSprite ringHor, TextureAtlasSprite ringVer, TextureAtlasSprite unitTexture) {
         super(format, ringCorner, ringHor, ringVer);
         this.unitTexture = unitTexture;
     }

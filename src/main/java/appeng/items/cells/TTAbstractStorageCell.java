@@ -16,7 +16,7 @@ import appeng.core.localization.GuiText;
 import appeng.items.AEBaseItem;
 import appeng.items.contents.CellConfig;
 import appeng.items.contents.CellUpgrades;
-import appeng.items.materials.TJAE2MaterialType;
+import appeng.items.materials.TTAE2MaterialType;
 import appeng.util.InventoryAdaptor;
 import appeng.util.Platform;
 import net.minecraft.client.util.ITooltipFlag;
@@ -39,11 +39,11 @@ import java.util.Set;
 /**
  * More advanced form of {@link appeng.items.storage.AbstractStorageCell}
  */
-public abstract class TJAbstractStorageCell<T extends IAEStack<T>> extends AEBaseItem implements IStorageCell<T>, IItemGroup {
-    protected final TJAE2MaterialType materialType;
+public abstract class TTAbstractStorageCell<T extends IAEStack<T>> extends AEBaseItem implements IStorageCell<T>, IItemGroup {
+    protected final TTAE2MaterialType materialType;
     protected final int totalBytes;
 
-    public TJAbstractStorageCell(final TJAE2MaterialType materialType, final int kiloBytes) {
+    public TTAbstractStorageCell(final TTAE2MaterialType materialType, final int kiloBytes) {
         this.setMaxStackSize(1);
         long totalBytes = Math.min(Integer.MAX_VALUE, (long) kiloBytes * 1024);
         this.totalBytes = (int) totalBytes;

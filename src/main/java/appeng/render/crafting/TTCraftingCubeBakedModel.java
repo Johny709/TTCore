@@ -1,6 +1,6 @@
 package appeng.render.crafting;
 
-import appeng.block.crafting.TJBlockCraftingUnit;
+import appeng.block.crafting.TTBlockCraftingUnit;
 import appeng.client.render.cablebus.CubeBuilder;
 import appeng.client.render.crafting.CraftingCubeState;
 import net.minecraft.block.state.IBlockState;
@@ -24,7 +24,7 @@ import java.util.List;
  * Primarily this base class handles adding the "ring" that frames the multi-block structure and delegates
  * rendering of the "inner" part of each block to the subclasses of this class.
  */
-public abstract class TJCraftingCubeBakedModel implements IBakedModel {
+public abstract class TTCraftingCubeBakedModel implements IBakedModel {
 
     private final VertexFormat format;
 
@@ -34,7 +34,7 @@ public abstract class TJCraftingCubeBakedModel implements IBakedModel {
 
     private final TextureAtlasSprite ringVer;
 
-    public TJCraftingCubeBakedModel(VertexFormat format, TextureAtlasSprite ringCorner, TextureAtlasSprite ringHor, TextureAtlasSprite ringVer) {
+    public TTCraftingCubeBakedModel(VertexFormat format, TextureAtlasSprite ringCorner, TextureAtlasSprite ringHor, TextureAtlasSprite ringVer) {
         this.format = format;
         this.ringCorner = ringCorner;
         this.ringHor = ringHor;
@@ -220,7 +220,7 @@ public abstract class TJCraftingCubeBakedModel implements IBakedModel {
         }
 
         IExtendedBlockState extState = (IExtendedBlockState) state;
-        CraftingCubeState cubeState = extState.getValue(TJBlockCraftingUnit.STATE);
+        CraftingCubeState cubeState = extState.getValue(TTBlockCraftingUnit.STATE);
         if (cubeState == null) {
             return EnumSet.noneOf(EnumFacing.class);
         }

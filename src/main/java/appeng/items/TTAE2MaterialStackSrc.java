@@ -1,18 +1,18 @@
 package appeng.items;
 
 import appeng.core.features.IStackSrc;
-import appeng.items.materials.TJAE2MaterialType;
+import appeng.items.materials.TTAE2MaterialType;
 import com.google.common.base.Preconditions;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 
-public class TJAE2MaterialStackSrc implements IStackSrc {
+public class TTAE2MaterialStackSrc implements IStackSrc {
 
-    private final TJAE2MaterialType src;
+    private final TTAE2MaterialType src;
     private final boolean enabled;
 
-    public TJAE2MaterialStackSrc(final TJAE2MaterialType src, boolean enabled) {
+    public TTAE2MaterialStackSrc(final TTAE2MaterialType src, boolean enabled) {
         Preconditions.checkNotNull(src);
 
         this.src = src;

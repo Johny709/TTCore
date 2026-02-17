@@ -1,19 +1,19 @@
 package appeng.render.crafting;
 
-import appeng.block.crafting.TJBlockCraftingUnit;
+import appeng.block.crafting.TTBlockCraftingUnit;
 import appeng.client.render.cablebus.CubeBuilder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.VertexFormat;
 import net.minecraft.util.EnumFacing;
 
-public class TJLightBakedModel extends TJCraftingCubeBakedModel {
+public class TTLightBakedModel extends TTCraftingCubeBakedModel {
 
     private final TextureAtlasSprite baseTexture;
 
     private final TextureAtlasSprite lightTexture;
 
-    public TJLightBakedModel(VertexFormat format, TextureAtlasSprite ringCorner, TextureAtlasSprite ringHor, TextureAtlasSprite ringVer, TextureAtlasSprite baseTexture, TextureAtlasSprite lightTexture) {
+    public TTLightBakedModel(VertexFormat format, TextureAtlasSprite ringCorner, TextureAtlasSprite ringHor, TextureAtlasSprite ringVer, TextureAtlasSprite baseTexture, TextureAtlasSprite lightTexture) {
         super(format, ringCorner, ringHor, ringVer);
         this.baseTexture = baseTexture;
         this.lightTexture = lightTexture;
@@ -24,7 +24,7 @@ public class TJLightBakedModel extends TJCraftingCubeBakedModel {
         builder.setTexture(this.baseTexture);
         builder.addCube(x1, y1, z1, x2, y2, z2);
 
-        boolean powered = state.getValue(TJBlockCraftingUnit.POWERED);
+        boolean powered = state.getValue(TTBlockCraftingUnit.POWERED);
         builder.setRenderFullBright(powered);
         builder.setTexture(this.lightTexture);
         builder.addCube(x1, y1, z1, x2, y2, z2);

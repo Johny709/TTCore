@@ -5,18 +5,18 @@ import appeng.api.storage.IStorageChannel;
 import appeng.api.storage.channels.IFluidStorageChannel;
 import appeng.api.storage.data.IAEFluidStack;
 import appeng.fluids.helper.FluidCellConfig;
-import appeng.items.materials.TJAE2MaterialType;
+import appeng.items.materials.TTAE2MaterialType;
 import appeng.util.InventoryAdaptor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 
-public class TJFluidStorageCell extends TJAbstractStorageCell<IAEFluidStack> {
+public class TTFluidStorageCell extends TTAbstractStorageCell<IAEFluidStack> {
 
     private final int perType;
     private final double idleDrain;
 
-    public TJFluidStorageCell(TJAE2MaterialType materialType, int kiloBytes) {
+    public TTFluidStorageCell(TTAE2MaterialType materialType, int kiloBytes) {
         super(materialType, kiloBytes);
         this.idleDrain = 4.5 + ((materialType.ordinal() - 4) * 0.5);
         this.perType = Math.min(16_777_215, kiloBytes / 128);

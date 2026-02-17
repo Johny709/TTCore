@@ -4,9 +4,9 @@ import appeng.api.definitions.IItemDefinition;
 import appeng.bootstrap.FeatureFactory;
 import appeng.core.api.definitions.ApiItems;
 import appeng.core.features.AEFeature;
-import appeng.items.cells.TJFluidStorageCell;
-import appeng.items.cells.TJItemStorageCell;
-import appeng.items.materials.TJAE2MaterialType;
+import appeng.items.cells.TTFluidStorageCell;
+import appeng.items.cells.TTItemStorageCell;
+import appeng.items.materials.TTAE2MaterialType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -44,14 +44,14 @@ public abstract class ApiItemsMixin implements IApiItems {
     @Inject(method = "<init>", at = @At("TAIL"))
     private void ttcoreInject_Init(FeatureFactory registry, CallbackInfo ci) {
         FeatureFactory storageCells = registry.features(AEFeature.STORAGE_CELLS);
-        this.cell65m = storageCells.item("storage_cell_65m", () -> new TJItemStorageCell(TJAE2MaterialType.CELL_65M_PART, 65_536)).build();
-        this.cell262m = storageCells.item("storage_cell_262m", () -> new TJItemStorageCell(TJAE2MaterialType.CELL_262M_PART, 262_144)).build();
-        this.cell1048m = storageCells.item("storage_cell_1048m", () -> new TJItemStorageCell(TJAE2MaterialType.CELL_1048M_PART, 1_048_576)).build();
-        this.cellDigitalSingularity = storageCells.item("storage_item_digital_singularity", () -> new TJItemStorageCell(TJAE2MaterialType.ITEM_CELL_DIGITAL_SINGULARITY, Integer.MAX_VALUE)).build();
-        this.fluidCell65m = storageCells.item("storage_fluid_cell_65m", () -> new TJFluidStorageCell(TJAE2MaterialType.FLUID_CELL_65M_PART, 65_536)).build();
-        this.fluidCell262m = storageCells.item("storage_fluid_cell_262m", () -> new TJFluidStorageCell(TJAE2MaterialType.FLUID_CELL_262M_PART, 262_144)).build();
-        this.fluidCell1048m = storageCells.item("storage_fluid_cell_1048m", () -> new TJFluidStorageCell(TJAE2MaterialType.FLUID_CELL_1048M_PART, 1_048_576)).build();
-        this.fluidCellDigitalSingularity = storageCells.item("storage_fluid_digital_singularity", () -> new TJFluidStorageCell(TJAE2MaterialType.FLUID_CELL_DIGITAL_SINGULARITY, Integer.MAX_VALUE)).build();
+        this.cell65m = storageCells.item("storage_cell_65m", () -> new TTItemStorageCell(TTAE2MaterialType.CELL_65M_PART, 65_536)).build();
+        this.cell262m = storageCells.item("storage_cell_262m", () -> new TTItemStorageCell(TTAE2MaterialType.CELL_262M_PART, 262_144)).build();
+        this.cell1048m = storageCells.item("storage_cell_1048m", () -> new TTItemStorageCell(TTAE2MaterialType.CELL_1048M_PART, 1_048_576)).build();
+        this.cellDigitalSingularity = storageCells.item("storage_item_digital_singularity", () -> new TTItemStorageCell(TTAE2MaterialType.ITEM_CELL_DIGITAL_SINGULARITY, Integer.MAX_VALUE)).build();
+        this.fluidCell65m = storageCells.item("storage_fluid_cell_65m", () -> new TTFluidStorageCell(TTAE2MaterialType.FLUID_CELL_65M_PART, 65_536)).build();
+        this.fluidCell262m = storageCells.item("storage_fluid_cell_262m", () -> new TTFluidStorageCell(TTAE2MaterialType.FLUID_CELL_262M_PART, 262_144)).build();
+        this.fluidCell1048m = storageCells.item("storage_fluid_cell_1048m", () -> new TTFluidStorageCell(TTAE2MaterialType.FLUID_CELL_1048M_PART, 1_048_576)).build();
+        this.fluidCellDigitalSingularity = storageCells.item("storage_fluid_digital_singularity", () -> new TTFluidStorageCell(TTAE2MaterialType.FLUID_CELL_DIGITAL_SINGULARITY, Integer.MAX_VALUE)).build();
     }
 
     @Override

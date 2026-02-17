@@ -6,8 +6,8 @@ import appeng.bootstrap.IItemRendering;
 import appeng.bootstrap.ItemRenderingCustomizer;
 import appeng.core.api.definitions.ApiMaterials;
 import appeng.core.features.DamagedItemDefinition;
-import appeng.items.materials.TJAE2MaterialType;
-import appeng.items.materials.TJItemMaterial;
+import appeng.items.materials.TTAE2MaterialType;
+import appeng.items.materials.TTItemMaterial;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.spongepowered.asm.mixin.Mixin;
@@ -50,7 +50,7 @@ public abstract class ApiMaterialsMixin implements IApiMaterials {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void ttcoreInject_Init(FeatureFactory registry, CallbackInfo ci) {
-        final TJItemMaterial materials = new TJItemMaterial();
+        final TTItemMaterial materials = new TTItemMaterial();
         registry.item("tj_material",() -> materials)
                 .rendering(new ItemRenderingCustomizer() {
                     @Override
@@ -58,19 +58,19 @@ public abstract class ApiMaterialsMixin implements IApiMaterials {
                     public void customize(IItemRendering rendering) {
                         rendering.meshDefinition(is -> materials.getTypeByStack(is).getModel());
                         // Register a resource location for every material type
-                        rendering.variants(Arrays.stream(TJAE2MaterialType.values())
-                                .map(TJAE2MaterialType::getModel)
+                        rendering.variants(Arrays.stream(TTAE2MaterialType.values())
+                                .map(TTAE2MaterialType::getModel)
                                 .collect(Collectors.toList()));
                     }
                 }).build();
-        this.cell65mPart = new DamagedItemDefinition("material.cell.storage.65m", materials.createMaterial(TJAE2MaterialType.CELL_65M_PART));
-        this.cell262mPart = new DamagedItemDefinition("material.cell.storage.262m", materials.createMaterial(TJAE2MaterialType.CELL_262M_PART));
-        this.cell1048mPart = new DamagedItemDefinition("material.cell.storage.1048m", materials.createMaterial(TJAE2MaterialType.CELL_1048M_PART));
-        this.cellDigitalSingularityPart = new DamagedItemDefinition("material.cell.digital.singularity", materials.createMaterial(TJAE2MaterialType.ITEM_CELL_DIGITAL_SINGULARITY));
-        this.fluidCell65mPart = new DamagedItemDefinition("material.cell.storage.65m", materials.createMaterial(TJAE2MaterialType.FLUID_CELL_65M_PART));
-        this.fluidCell262mPart = new DamagedItemDefinition("material.cell.storage.262m", materials.createMaterial(TJAE2MaterialType.FLUID_CELL_262M_PART));
-        this.fluidCell1048mPart = new DamagedItemDefinition("material.cell.storage.1048m", materials.createMaterial(TJAE2MaterialType.FLUID_CELL_1048M_PART));
-        this.fluidCellDigitalSingularityPart = new DamagedItemDefinition("material.cell.digital.singularity", materials.createMaterial(TJAE2MaterialType.FLUID_CELL_DIGITAL_SINGULARITY));
+        this.cell65mPart = new DamagedItemDefinition("material.cell.storage.65m", materials.createMaterial(TTAE2MaterialType.CELL_65M_PART));
+        this.cell262mPart = new DamagedItemDefinition("material.cell.storage.262m", materials.createMaterial(TTAE2MaterialType.CELL_262M_PART));
+        this.cell1048mPart = new DamagedItemDefinition("material.cell.storage.1048m", materials.createMaterial(TTAE2MaterialType.CELL_1048M_PART));
+        this.cellDigitalSingularityPart = new DamagedItemDefinition("material.cell.digital.singularity", materials.createMaterial(TTAE2MaterialType.ITEM_CELL_DIGITAL_SINGULARITY));
+        this.fluidCell65mPart = new DamagedItemDefinition("material.cell.storage.65m", materials.createMaterial(TTAE2MaterialType.FLUID_CELL_65M_PART));
+        this.fluidCell262mPart = new DamagedItemDefinition("material.cell.storage.262m", materials.createMaterial(TTAE2MaterialType.FLUID_CELL_262M_PART));
+        this.fluidCell1048mPart = new DamagedItemDefinition("material.cell.storage.1048m", materials.createMaterial(TTAE2MaterialType.FLUID_CELL_1048M_PART));
+        this.fluidCellDigitalSingularityPart = new DamagedItemDefinition("material.cell.digital.singularity", materials.createMaterial(TTAE2MaterialType.FLUID_CELL_DIGITAL_SINGULARITY));
     }
 
     @Override

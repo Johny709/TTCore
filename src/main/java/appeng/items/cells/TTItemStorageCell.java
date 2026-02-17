@@ -4,18 +4,18 @@ import appeng.api.AEApi;
 import appeng.api.storage.IStorageChannel;
 import appeng.api.storage.channels.IItemStorageChannel;
 import appeng.api.storage.data.IAEItemStack;
-import appeng.items.materials.TJAE2MaterialType;
+import appeng.items.materials.TTAE2MaterialType;
 import appeng.util.InventoryAdaptor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 
-public class TJItemStorageCell extends TJAbstractStorageCell<IAEItemStack> {
+public class TTItemStorageCell extends TTAbstractStorageCell<IAEItemStack> {
 
     protected final int perType;
     protected final double idleDrain;
 
-    public TJItemStorageCell(TJAE2MaterialType materialType, int kiloBytes) {
+    public TTItemStorageCell(TTAE2MaterialType materialType, int kiloBytes) {
         super(materialType, kiloBytes);
         this.idleDrain = 4.5 + (materialType.ordinal() * 0.5);
         this.perType = Math.min(16_777_215, kiloBytes / 128);

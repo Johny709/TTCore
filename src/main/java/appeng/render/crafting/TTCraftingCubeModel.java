@@ -1,6 +1,6 @@
 package appeng.render.crafting;
 
-import appeng.block.crafting.TJCraftingUnitType;
+import appeng.block.crafting.TTCraftingUnitType;
 import appeng.core.AppEng;
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.Function;
 
-public class TJCraftingCubeModel implements IModel {
+public class TTCraftingCubeModel implements IModel {
 
     private static final ResourceLocation RING_CORNER = texture("ring_corner");
     private static final ResourceLocation RING_SIDE_HOR = texture("ring_side_hor");
@@ -27,9 +27,9 @@ public class TJCraftingCubeModel implements IModel {
     private static final ResourceLocation STORAGE_1048M_LIGHT = texture("storage_1048m_light");
     private static final ResourceLocation STORAGE_DIGITAL_SINGULARITY = texture("storage_digital_singularity_light");
 
-    private final TJCraftingUnitType type;
+    private final TTCraftingUnitType type;
 
-    public TJCraftingCubeModel(TJCraftingUnitType type) {
+    public TTCraftingCubeModel(TTCraftingUnitType type) {
         this.type = type;
     }
 
@@ -47,13 +47,13 @@ public class TJCraftingCubeModel implements IModel {
 
         switch (this.type) {
             case UNIT:
-                return new TJUnitBakedModel(format, ringCorner, ringSideHor, ringSideVer, bakedTextureGetter.apply(UNIT_BASE));
+                return new TTUnitBakedModel(format, ringCorner, ringSideHor, ringSideVer, bakedTextureGetter.apply(UNIT_BASE));
 //            case ACCELERATOR:
             case STORAGE_65M:
             case STORAGE_262M:
             case STORAGE_1048M:
             case STORAGE_SINGULARITY:
-                return new TJLightBakedModel(format, ringCorner, ringSideHor, ringSideVer, bakedTextureGetter
+                return new TTLightBakedModel(format, ringCorner, ringSideHor, ringSideVer, bakedTextureGetter
                         .apply(LIGHT_BASE), getLightTexture(bakedTextureGetter, this.type));
 //            case MONITOR:
 //                return new MonitorBakedModel(format, ringCorner, ringSideHor, ringSideVer, bakedTextureGetter.apply(UNIT_BASE), bakedTextureGetter
@@ -63,7 +63,7 @@ public class TJCraftingCubeModel implements IModel {
         }
     }
 
-    private static TextureAtlasSprite getLightTexture(Function<ResourceLocation, TextureAtlasSprite> textureGetter, TJCraftingUnitType type) {
+    private static TextureAtlasSprite getLightTexture(Function<ResourceLocation, TextureAtlasSprite> textureGetter, TTCraftingUnitType type) {
         switch (type) {
 //            case ACCELERATOR:
 //                return textureGetter.apply(ACCELERATOR_LIGHT);

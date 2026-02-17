@@ -26,14 +26,14 @@ import net.minecraftforge.common.property.IUnlistedProperty;
 
 import java.util.EnumSet;
 
-public class TJBlockCraftingUnit extends AEBaseTileBlock {
+public class TTBlockCraftingUnit extends AEBaseTileBlock {
     public static final PropertyBool FORMED = PropertyBool.create("formed");
     public static final PropertyBool POWERED = PropertyBool.create("powered");
     public static final UnlistedProperty<CraftingCubeState> STATE = new UnlistedProperty<>("state", CraftingCubeState.class);
 
-    private final TJCraftingUnitType type;
+    private final TTCraftingUnitType type;
 
-    public TJBlockCraftingUnit(final TJCraftingUnitType type) {
+    public TTBlockCraftingUnit(final TTCraftingUnitType type) {
         super(Material.IRON);
         this.type = type;
     }
@@ -61,7 +61,7 @@ public class TJBlockCraftingUnit extends AEBaseTileBlock {
 
     private boolean isConnected(IBlockAccess world, BlockPos pos, EnumFacing side) {
         BlockPos adjacentPos = pos.offset(side);
-        return world.getBlockState(adjacentPos).getBlock() instanceof TJBlockCraftingUnit;
+        return world.getBlockState(adjacentPos).getBlock() instanceof TTBlockCraftingUnit;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class TJBlockCraftingUnit extends AEBaseTileBlock {
         return super.onBlockActivated(w, pos, state, p, hand, side, hitX, hitY, hitZ);
     }
 
-    public TJCraftingUnitType getType() {
+    public TTCraftingUnitType getType() {
         return this.type;
     }
 }

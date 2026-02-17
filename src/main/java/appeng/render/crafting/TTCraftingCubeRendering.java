@@ -1,7 +1,7 @@
 package appeng.render.crafting;
 
-import appeng.block.crafting.TJBlockCraftingUnit;
-import appeng.block.crafting.TJCraftingUnitType;
+import appeng.block.crafting.TTBlockCraftingUnit;
+import appeng.block.crafting.TTCraftingUnitType;
 import appeng.bootstrap.BlockRenderingCustomizer;
 import appeng.bootstrap.IBlockRendering;
 import appeng.bootstrap.IItemRendering;
@@ -19,13 +19,13 @@ import java.util.Map;
 /**
  * Rendering customization for the crafting cube.
  */
-public class TJCraftingCubeRendering extends BlockRenderingCustomizer {
+public class TTCraftingCubeRendering extends BlockRenderingCustomizer {
 
     private final String registryName;
 
-    private final TJCraftingUnitType type;
+    private final TTCraftingUnitType type;
 
-    public TJCraftingCubeRendering(String registryName, TJCraftingUnitType type) {
+    public TTCraftingCubeRendering(String registryName, TTCraftingUnitType type) {
         this.registryName = registryName;
         this.type = type;
     }
@@ -47,7 +47,7 @@ public class TJCraftingCubeRendering extends BlockRenderingCustomizer {
         String builtInName = "models/block/crafting/" + this.registryName + "/builtin";
         ModelResourceLocation builtInModelName = new ModelResourceLocation(new ResourceLocation(AppEng.MOD_ID, builtInName), "normal");
 
-        rendering.builtInModel(builtInName, new TJCraftingCubeModel(this.type));
+        rendering.builtInModel(builtInName, new TTCraftingCubeModel(this.type));
 
         rendering.stateMapper(block -> this.mapState(block, defaultModel, builtInModelName));
 
@@ -59,7 +59,7 @@ public class TJCraftingCubeRendering extends BlockRenderingCustomizer {
     private Map<IBlockState, ModelResourceLocation> mapState(Block block, ModelResourceLocation defaultModel, ModelResourceLocation formedModel) {
         Map<IBlockState, ModelResourceLocation> result = new HashMap<>();
         for (IBlockState state : block.getBlockState().getValidStates()) {
-            if (state.getValue(TJBlockCraftingUnit.FORMED)) {
+            if (state.getValue(TTBlockCraftingUnit.FORMED)) {
                 // Always use the builtin model if the multiblock is formed
                 result.put(state, formedModel);
             } else {
